@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story ❤️✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #FF6B9D 0%, #C06C84 50%, #F67280 100%);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .sparkles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0;
+            animation: float 8s infinite;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: bounceIn 1.2s ease-out;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5), 0 0 40px rgba(255,107,157,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
+            font-weight: 300;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero .date {
+            font-size: 1.4rem;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+            background: rgba(255, 255, 255, 0.25);
+            padding: 1.2rem 2.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            font-weight: 600;
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) translateY(-100px);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .counter {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            margin: 3rem auto;
+            max-width: 600px;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .counter:hover {
+            transform: translateY(-10px);
+        }
+
+        .counter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .counter-number {
+            font-size: 5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+            color: #FFE5EC;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            animation: countPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes countPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .timeline {
+            position: relative;
+            padding: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 5rem;
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-out forwards;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: #FFE5EC;
+            border-radius: 50%;
+            border: 5px solid #FF6B9D;
+            box-shadow: 0 0 20px rgba(255,107,157,0.6);
+            z-index: 3;
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255,107,157,0.6); }
+            50% { box-shadow: 0 0 40px rgba(255,107,157,1); }
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: 25px;
+            flex: 0 0 45%;
+            margin: 0 1rem;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .timeline-content h3 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #FFE5EC;
+        }
+
+        .timeline-content p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .photo-card {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            height: 450px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: 3px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .photo-card:hover {
+            transform: translateY(-15px) rotate(3deg);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            background: linear-gradient(135deg, rgba(255,229,236,0.3), rgba(255,107,157,0.2));
+            animation: photoGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes photoGlow {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.2); }
+        }
+
+        .love-letter {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(20px);
+            padding: 4rem;
+            border-radius: 30px;
+            max-width: 900px;
+            margin: 3rem auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            border: 3px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-letter::before {
+            content: '💝';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .love-letter p {
+            font-size: 1.35rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 300;
+        }
+
+        .love-letter p:first-of-type {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            color: #FFE5EC;
+        }
+
+        .signature {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            margin-top: 3rem;
+            color: #FFE5EC;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-message {
+            text-align: center;
+            padding: 5rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .final-message h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            animation: float2 3s ease-in-out infinite;
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .final-message p {
+            font-size: 1.8rem;
+            margin: 2rem 0;
+            font-weight: 300;
+        }
+
+        .big-heart {
+            font-size: 6rem;
+            display: inline-block;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.2); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .reason-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .reason-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+        }
+
+        .reason-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .reason-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .reason-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero .subtitle {
+                font-size: 1.4rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+            .timeline-content {
+                flex: 1;
+                margin: 1rem;
+            }
+            .timeline-dot {
+                left: 20px;
+            }
+            .love-letter {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" src="media/romantic_music.mp3" loop></audio>
+
+    <div class="sparkles" id="sparkles"></div>
+    <div class="floating-hearts" id="hearts"></div>
+
+    <section class="hero">
+        <h1>✨ Forever & Always ✨</h1>
+        <p class="subtitle">One Magical Year with My Everything</p>
+        <p class="date">November 30, 2024 - November 30, 2025</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Our Love Story 💖</h2>
+        
+        <div class="counter">
+            <h3>We've Shared</h3>
+            <div class="counter-number" id="days">365</div>
+            <p style="font-size: 1.3rem;">Days of Pure Magic ✨</p>
+        </div>
+
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <div class="reason-icon">🌟</div>
+                <h3>Endless Laughter</h3>
+                <p>You make every day brighter with your beautiful smile and contagious joy</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">💝</div>
+                <h3>Unconditional Love</h3>
+                <p>You love me for who I am, flaws and all, and that means everything</p>
+            </div>
+            <div class="reason-card">
+                <div class="reason-icon">🌈</div>
+                <h3>Perfect Together</h3>
+                <p>With you, life just feels right, comfortable, and full of joy</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Moments I Cherish 💕</h2>
+        
+        <div class="timeline">
+            <div class="timeline-item" style="animation-delay: 0.2s">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>💫 The Day We Met</h3>
+                    <p>I still remember the exact moment I first saw you. There was something special about you that caught my attention immediately. Your smile, your energy, the way you carried yourself - I was drawn to you right away. That day marked the beginning of something really beautiful between us.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.4s">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>💖 Our First "I Love You"</h3>
+                    <p>My heart was racing so fast I thought it would burst. When those three words finally came out, there was this amazing moment of nervousness and excitement.I know you have never said it out loud but I know. I know it was not a very typical moment I said it to you in chat while we were miles apart but it holds a special place in my heart.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.6s">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>🌙 Late Night Fights</h3>
+                    <p>Even our toughest moments brought us closer. Those late night arguments that ended in tears and apologies taught us how to communicate better. We learned that love isn't about never fighting - it's about always choosing to work through it together. Every time we made up, our bond grew stronger, and I realized you're worth every difficult conversation.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item" style="animation-delay: 0.8s">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>✨ Growing Together</h3>
+                    <p>Through every high and every low, you've been right there with me. You celebrate my wins like they're your own and lift me up when I'm down. You inspire me to be better and support me in everything I do. Together, we've built something really special - a relationship filled with love, trust, and so much laughter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Our Beautiful Moments 📸</h2>
+        <div class="photo-grid">
+            <div class="photo-card">
+                <a href="media/image-1.jpeg.jpeg" target="_blank" style="display: block; width: 100%; height: 100%;">
+                    <img src="media/image-1.jpeg.jpeg" alt="Us Together" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <div class="photo-card">
+                 <a href="media/image-2.jpeg.jpeg" target="_blank" style="display: block; width: 100%; height: 100%;">
+                    <img src="media/image-2.jpeg.jpeg" alt="Beautiful Moment" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <div class="photo-card">
+                 <a href="media/image-3.jpeg.jpeg" target="_blank" style="display: block; width: 100%; height: 100%;">
+                    <img src="media/image-3.jpeg.jpeg" alt="Your Beautiful Face" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <div class="photo-card">
+                 <a href="media/image-4.jpeg.jpeg" target="_blank" style="display: block; width: 100%; height: 100%;">
+                    <img src="media/image-4.jpeg.jpeg" alt="Cozy Moments" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <div class="photo-card">
+                 <a href="media/image-5.jpeg.jpeg" target="_blank" style="display: block; width: 100%; height: 100%;">
+                    <img src="media/image-5.jpeg.jpeg" alt="Night Adventures" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+            <div class="photo-card">
+                 <a href="media/image-6.jpeg.jpeg" target="_blank" style="display: block; width: 100%; height: 100%;">
+                    <img src="media/image-6.jpeg.jpeg" alt="Your Silly Side" style="width: 100%; height: 100%; object-fit: cover;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">From My Heart to Yours 💌</h2>
+        <div class="love-letter">
+            <p>My Beautiful Love, </p>
+            <p>This year with you has been absolutely incredible. Every single day, I feel so lucky that you chose me, that you love me, that you're mine.</p>
+            <p>You brighten even my worst days, you're there for me when things get tough, and you always believe in me when I doubt myself. Your love has changed me in the best ways. You've shown me what it really means to care for someone and be cared for.</p>
+            <p>I love the way you scrunch your nose when you laugh. I love how you always know what to say when I'm upset. I love your kindness, your strength, your amazing personality. I love how you make me feel like the luckiest person alive just by being yourself.</p>
+            <p>Thank you for every moment, every smile, every hug, every kiss, and every "I love you." Thank you for choosing me every single day. Thank you for being patient with my flaws and loving me anyway. Thank you for being my partner and my best friend.</p>
+            <p>This is just the beginning of our story together. I promise to love you more each day, to stand by you through everything, to make you laugh when you want to cry, and to always be there for you no matter what.</p>
+            <p>Here's to many more amazing days together. You're incredibly special to me, and I can't wait to see where this journey takes us.</p>
+            <p class="signature">Yours completely & always,<br>Your Forever Love 💕</p>
+        </div>
+    </section>
+
+    <section class="final-message">
+        <h2>To Infinity & Beyond 🚀✨</h2>
+        <p>You're not just my girlfriend...</p>
+        <p>You're my best friend, my soulmate, my everything.</p>
+        <p class="big-heart">❤️</p>
+        <p style="font-size: 2.5rem; font-family: 'Pacifico', cursive; margin-top: 2rem;">I Love You More Than Words Can Say</p>
+        <p style="font-size: 1.5rem; margin-top: 2rem; font-weight: 300;">Happy 1st Anniversary, Baby! 🎊💖✨</p>
+    </section>
+
+    <script>
+        // Create floating hearts
+        const heartsContainer = document.getElementById('hearts');
+        const heartSymbols = ['💕', '💖', '💗', '💝', '❤️', '💓', '💞'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+            heart.style.animationDelay = Math.random() * 3 + 's';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 12000);
+        }
+
+        // Create sparkles
+        const sparklesContainer = document.getElementById('sparkles');
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            sparklesContainer.appendChild(sparkle);
+            
+            setTimeout(() => sparkle.remove(), 2000);
+        }
+
+        // Create hearts and sparkles periodically
+        setInterval(createHeart, 600);
+        setInterval(createSparkle, 400);
+
+        // Calculate days together
+        const startDate = new Date('2024-11-30'); 
+        const today = new Date();
+        const daysTogetherCalc = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+        document.getElementById('days').textContent = daysTogetherCalc > 0 ? daysTogetherCalc : 365;
+
+        // Initialize some animations
+        for(let i = 0; i < 5; i++) {
+            setTimeout(createHeart, i * 200);
+        }
+        for(let i = 0; i < 20; i++) {
+            setTimeout(createSparkle, i * 100);
+        }
+
+        // --- Start Music Playback on User Interaction (Best Practice) ---
+        document.addEventListener('click', function() {
+            const music = document.getElementById('background-music');
+            if (music.paused) {
+                // Attempt to play music
+                music.play().catch(error => {
+                    console.log("Autoplay blocked, user interaction required:", error);
+                });
+            }
+        }, { once: true }); // Only run this check once
+    </script>
+</body>
+</html>
